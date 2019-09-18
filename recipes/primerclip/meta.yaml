@@ -1,0 +1,33 @@
+{% set version = "v0.3.8" %}
+{% set sha256 = "e710ab4426db43b2d37ae0b4b2842b100f92a3d9f415363d40021f65cbbae616" %}
+
+package:
+  name: primerclip
+  version: {{ version }} 
+
+source:
+  url: https://github.com/swiftbiosciences/primerclip/archive/{{ version }}.tar.gz
+  sha256: {{ sha256 }} 
+
+build:
+  number: 0
+  noarch: generic
+
+test:
+  commands:
+    - primerclip -h
+
+requirements:
+  host:
+    - stack
+    - zlib
+
+about:
+  home: https://github.com/swiftbiosciences/primerclip
+  license: GPL3
+  license_file: COPYING
+  summary: Primerclip is an alignment-based primer trimming tool designed to trim primer sequences for Swift Biosciences Accel-Amplicon panels.
+
+extra:
+  identifiers:
+    - biotools:primerclip
